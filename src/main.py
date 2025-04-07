@@ -56,6 +56,10 @@ def interactive_sql_shell(conn):
         except Exception as e:
             print(f"SQL Error: {e}")
 
+def log_error(message):
+    with open("error_log.txt", "a") as f:
+        f.write(message + "\n")
+
 def main():
     """Main CLI loop."""
     db_name = input("Enter database name (or press Enter for in-memory): ").strip() or ":memory:"
