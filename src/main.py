@@ -1,10 +1,10 @@
 import sqlite3
 import pandas as pd
 import os
-import openai
+from openai import OpenAI
 
-# Stored locally
 def load_openai_key(filepath="key.txt"):
+    """Load OpenAI API key from a file in the current working directory."""
     filepath = os.path.join(os.getcwd(), filepath)
     try:
         with open(filepath, "r") as f:
@@ -13,7 +13,12 @@ def load_openai_key(filepath="key.txt"):
         print(f"Could not find {filepath}. Please create the file with your OpenAI API key.")
         return None
 
-openai.api_key = load_openai_key()
+# Create the OpenAI client using the loaded key
+api_key = load_openai_key()
+if not api_key:
+    exit(1)
+
+client = OpenAI(api_key=api_key)
 
 def connect_db(db_name=":memory:"):
     """Connect to SQLite database (default: in-memory)."""
