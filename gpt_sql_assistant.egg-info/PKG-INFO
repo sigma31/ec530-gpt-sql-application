@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: gpt-sql-assistant
+Version: 0.1.0
+Summary: A GPT-powered SQL assistant
+Home-page: https://github.com/sigma31/ec530-gpt-sql-application
+Author: Your Name
+Author-email: your.email@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# GPT SQL Assistant
+
+A GPT-powered SQL Assistant that helps you create SQL queries for your SQLite databases. 
+
+## Installation
+
+You can install the package with pip:
+
+```bash
+pip install gpt_sql_assistant
+
+

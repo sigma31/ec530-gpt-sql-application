@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+gpt_sql_assistant/__init__.py
+gpt_sql_assistant/error_log.txt
+gpt_sql_assistant/key.txt
+gpt_sql_assistant/main.py
+gpt_sql_assistant.egg-info/PKG-INFO
+gpt_sql_assistant.egg-info/SOURCES.txt
+gpt_sql_assistant.egg-info/dependency_links.txt
+gpt_sql_assistant.egg-info/entry_points.txt
+gpt_sql_assistant.egg-info/requires.txt
+gpt_sql_assistant.egg-info/top_level.txt

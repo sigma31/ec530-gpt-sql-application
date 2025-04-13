@@ -1,0 +1,3 @@
+[console_scripts]
+gpt-sql-assistant = gpt_sql_assistant.main:main
+
