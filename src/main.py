@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import os
+import openai
 from openai import OpenAI
 
 def load_openai_key(filepath="key.txt"):
@@ -121,18 +122,17 @@ You are an expert SQL assistant. The database uses SQLite. Given the following S
 {table_schema}
 
 Generate an SQL query that fulfills this user request:
-\"\"\"{user_request}\"\"\"
+\"\"\"{user_request}\"\"\" 
 
 Only return the SQL query.
 """
 
     try:
-        response = openai.ChatCompletion.create(
+        response = client.responses.create(  # Use openai.Completion.create for text generation
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
+            input=prompt,
         )
-        return response['choices'][0]['message']['content'].strip()
+        return response
     except Exception as e:
         log_error(f"[ask_ai_for_sql] {e}")
         print(f"OpenAI Error: {e}")
@@ -145,7 +145,7 @@ def main():
     conn = connect_db(db_name)
 
     while True:
-        print("\nCommands: [load] Load CSV | [sql] Run SQL | [exit] Quit")
+        print("\nCommands: [load] Load CSV | [sql] Run SQL | [chat] Use ChatGPT | [exit] Quit")
         cmd = input("Command: ").strip().lower()
 
         if cmd == "load":
